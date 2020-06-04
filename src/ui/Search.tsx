@@ -3,24 +3,24 @@ import React, { FC, memo } from 'react';
  // eslint-disable-next-line 
 import { jsx, css } from '@emotion/core';
 import { colors } from '.';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 
-export interface SelectProps
+export interface SearchProps
   extends React.DetailedHTMLProps<
-    React.SelectHTMLAttributes<HTMLSelectElement>,
-    HTMLSelectElement
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
   > {}
 
-export const Select: FC<SelectProps> = memo((props) => {
+export const Search: FC<SearchProps> = memo((props) => {
   return (
     <div css={style}>
-      <select {...props} />
-      <FaAngleDown />
+      <FaSearch />
+      <input {...props} />
     </div>
   );
 });
 
-Select.displayName = 'Select';
+Search.displayName = 'Search';
 
 const style = css`
   position: relative;
@@ -28,14 +28,14 @@ const style = css`
   display: inline-block;
   margin-right: 15px;
 
-  > select {
+  > input {
     color: ${colors.brown};
-    padding: 0 2rem 0 1rem;
+    padding: 0 1rem 0 2rem;
     background-color: ${colors.beige};
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     appearance: none;
 
     font-weight: 800;
@@ -44,18 +44,23 @@ const style = css`
     line-height: 0.875rem;
     letter-spacing: -0.02em;
     outline: none;
-    cursor: pointer;
   }
 
-  > select:hover {
-    background: ${colors.yellow};
+  > input:active {
+    border: 1px solid #B492FC;
+    box-sizing: border-box;
+  }
+
+  > input:hover {
+    border: 1px solid #B492FC;
+    box-sizing: border-box;
   }
 
   > svg {
     color: ${colors.brown};
     font-size: 1rem;
     position: absolute;
-    right: 0.5rem;
+    left: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;

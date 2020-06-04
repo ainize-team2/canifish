@@ -5,15 +5,18 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './fontObserver';
 import detectBrowser from './detectBrowser';
+import { BrowserRouter } from "react-router-dom";
 
 detectBrowser();
 
 const rootNode = document.getElementById('root');
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </BrowserRouter>,
   rootNode,
 );
 

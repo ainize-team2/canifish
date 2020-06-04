@@ -1,35 +1,54 @@
 /* @jsx jsx */
- // eslint-disable-next-line 
-import React, { useState, Suspense } from 'react';
+import React from 'react';
+
 import FishListContainer from './components/fish/FishListContainer';
+import About from './components/about';
+
  // eslint-disable-next-line 
 import { css, jsx } from '@emotion/core';
- // eslint-disable-next-line 
-import { colors, Select } from './ui';
- // eslint-disable-next-line 
-import text from './constants/text';
 
-const style = css`
-  background: ${colors.appBgColor};
-  padding: 2rem 0;
-  min-height: 100%;
+import { Switch, Route, Redirect } from "react-router-dom";
+import "./styles/main.css";
+import containerStyle from './styles/containerStyle';
 
-  h1 {
-    margin: 0 0 1em;
-    text-align: center;
-    color: ${colors.brown};
-  }
-`;
+// images
+import GitHubIcon from "./images/icon-git-hub.svg";
+import AinizeIcon from "./images/icon-ainize.svg";
+
+
 
 function App() {
   return (
-    <main css={style}>
-      <h1>Can I Fish?</h1>
-
-      <Suspense fallback="Loading...">
-        <FishListContainer />
-      </Suspense>
-    </main>
+    <React.Fragment>
+      <header css={containerStyle}>
+        <div className="container">
+          <a href="/home">
+            <h3 className="logo">Can I fish ?</h3>
+          </a>
+          <div className="menu">
+            <a href="/">HOME</a>
+            <a href="/about">ABOUT</a>
+          </div>
+        </div>
+      </header>
+      <Switch>
+        <Route exact path="/about" component={About} />
+        <Route exact path="/FishListContainer" component={FishListContainer} />
+        <Route path="/">
+          <Redirect to="/FishListContainer" />
+        </Route>
+      </Switch>
+      <footer css={containerStyle}>
+        <a className="ainizeLink"  target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/liayoo/crowdy">
+          <img src={AinizeIcon} alt="AinizeIcon"/>
+          Powered by Ainize
+        </a>
+        <a className="githubLink" target="_blank" rel="noopener noreferrer" href="https://github.com/ainize-team2/crowdy">
+          <img src={GitHubIcon} alt="AinizeIcon"/>
+          Contribute on GitHub
+        </a>
+      </footer>
+    </React.Fragment>
   );
 }
 

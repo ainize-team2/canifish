@@ -34,7 +34,7 @@ const variants = {
     color: ${colors.brown};
   `,
   active: css`
-    background-color: ${colors.yellow};
+    background-color: ${colors.darkYellow};
     color: ${colors.white};
   `,
 };
