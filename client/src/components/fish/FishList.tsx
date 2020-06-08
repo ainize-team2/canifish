@@ -59,8 +59,8 @@ const FishList: React.FC<FishListProps> = React.memo(({ fishes, listText, lang }
     return [
       shadowSizeTextMap[shadowSize] +
         (typeof shadowSize === 'number' ? `(${shadowSize})` : ''),
-      hasFin && text.HAS_FIN,
-      hasSound && text.HAS_SOUND,
+      hasFin && text.HAS_FIN[lang],
+      hasSound && text.HAS_SOUND[lang],
     ]
       .filter(Boolean)
       .join(', ');
