@@ -19,7 +19,8 @@ const FishList: React.FC<FishListProps> = React.memo(({ fishes, listText }) => {
     <React.Fragment>
       <Text variant="listTitle">{listText}</Text>
       <ul css={style}>
-        {fishes.map((fish) => {
+        {
+        fishes.map((fish) => {
           const {
             id,
             name,

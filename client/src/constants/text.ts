@@ -1,4 +1,5 @@
 export default {
+  PLACE_DEFAULT: '출현시기',
   PLACE_RIVER: '강',
   PLACE_MOUTH: '강(하구)',
   PLACE_CLIFFTOP: '강(절벽위)',
@@ -18,4 +19,5 @@ export default {
   ONLY_RAINING: '비 또는 눈',
   NORTHERN: '북반구',
   SOUTHERN: '남반구',
+  APPEARANCE: '출현시기',
 };

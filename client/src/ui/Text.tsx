@@ -13,6 +13,7 @@ export type TextVariants = 'listTitle';
 const variants: { [key in TextVariants]: any } = {
   listTitle: css`
     color: ${colors.brown};
+    font-family: Apple SD Gothic Neo;
     font-weight: 800;
     font-size: 0.875rem;
     line-height: 1rem;

@@ -13,7 +13,7 @@ const style = css`
   cursor: pointer;
 
   /** 버튼 텍스트 */
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 
@@ -29,18 +29,18 @@ export type ButtonVariants = 'primary';
 const variants: { [key in ButtonVariants]: any } = {
   primary: css`
     &:not(:disabled) {
-      background: ${colors.green};
+      background: ${colors.brown};
       color: ${colors.white};
 
       &:hover {
-        background: ${colors.lightGreen};
+        background: ${colors.lightPurple};
       }
 
       &:active {
-        background: ${colors.darkGreen};
+        background: ${colors.purple};
       }
     }
-  `,
+  `
 };
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -6,10 +6,6 @@ export default {
   component: Select,
 };
 
-const buttonVariantOptions: any = {
-  Primary: 'primary',
-};
-
 export const select = () => {
   return (
     <Select>

@@ -26,6 +26,7 @@ const style = css`
   position: relative;
   height: 2rem;
   display: inline-block;
+  margin-right: 15px;
 
   > select {
     color: ${colors.brown};
@@ -44,6 +45,10 @@ const style = css`
     letter-spacing: -0.02em;
     outline: none;
     cursor: pointer;
+  }
+
+  > select:hover {
+    background: ${colors.yellow};
   }
 
   > svg {
