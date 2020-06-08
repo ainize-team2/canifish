@@ -6,6 +6,7 @@ import { useRef, useEffect } from 'react';
 import { FaClock, FaFish, FaMapPin } from 'react-icons/fa';
 import { ApplyMonths } from './ApplyMonths';
 import colors from './colors';
+import text from '../constants/text';
 
 export interface FishCardProps {
   /** 생선 이름 */
@@ -22,6 +23,8 @@ export interface FishCardProps {
   applyMonths: number[];
   /** 이미지 URL */
   imageUrl: string;
+
+  lang: 'korean' | 'english'
 }
 
 const { format } = new Intl.NumberFormat();
@@ -34,6 +37,7 @@ export const FishCard: FC<FishCardProps> = ({
   shadowSize,
   applyMonths,
   imageUrl,
+  lang
 }) => {
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -74,7 +78,7 @@ export const FishCard: FC<FishCardProps> = ({
       <div css={nameAndPriceAndInformationStyle}>
         <div css={nameAndPriceStyle}>
           <h2>{name}</h2>
-          <h3>{format(price)}벨</h3>
+          <h3>{format(price)}{text.PRICE[lang]}</h3>
         </div>
         <ul css={informationStyle}>
           <li className="time">
