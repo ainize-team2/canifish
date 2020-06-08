@@ -11,6 +11,7 @@ import text from '../../constants/text';
 import containerStyle from '../../styles/containerStyle';
 import translateIcon from '../../images/translate-icon.svg';
 // import media from 'css-in-js-media';
+import analytics from '../../constants/ga';
 
 const FishListContainer: FC = () => {
   const fishes = fishData.dataset;
@@ -29,6 +30,10 @@ const FishListContainer: FC = () => {
     return () => {
       window.addEventListener('focus', onWindowFocus);
     };
+  }, []);
+
+  useEffect(() => {
+    analytics.ga("send", "pageview", "/home");
   }, []);
 
   const [hemisphereToggle, setHemisphereToggle] = useState<boolean>(
@@ -55,7 +60,6 @@ const FishListContainer: FC = () => {
     () => reduceFishesFromNow(fishes, nowMonth, nowHours, (hemisphereToggle)? 'northern': 'southern', place, searchContent, month),
     [fishes, nowHours, nowMonth, hemisphereToggle, place, searchContent, month],
   );
-
   return (
     <div>
       <Suspense fallback="Loading...">
