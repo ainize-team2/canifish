@@ -39,11 +39,11 @@ function App() {
         </Route>
       </Switch>
       <footer css={containerStyle}>
-        <a className="ainizeLink"  target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/liayoo/crowdy">
+        <a className="ainizeLink"  target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/ehdgus8077/canifish">
           <img src={AinizeIcon} alt="AinizeIcon"/>
           Powered by Ainize
         </a>
-        <a className="githubLink" target="_blank" rel="noopener noreferrer" href="https://github.com/ainize-team2/crowdy">
+        <a className="githubLink" target="_blank" rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
           <img src={GitHubIcon} alt="AinizeIcon"/>
           Contribute on GitHub
         </a>
