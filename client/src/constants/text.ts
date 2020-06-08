@@ -19,5 +19,5 @@ export default {
   ONLY_RAINING: '비 또는 눈',
   NORTHERN: '북반구',
   SOUTHERN: '남반구',
-  APPEARANCE: '출연시기',
+  APPEARANCE: '출현시기',
 };
