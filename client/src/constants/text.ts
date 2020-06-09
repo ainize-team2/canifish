@@ -1,7 +1,7 @@
 const text = {
   PLACE_DEFAULT: {
     korean: '출현장소',
-    english: 'dropdown',
+    english: 'Location',
   },
   PLACE_RIVER: {
     korean: '강',
@@ -81,7 +81,7 @@ const text = {
   },
   APPEARANCE: {
     korean: '출현시기',
-    english: 'dropdown 2',
+    english: 'Season',
   },
   PRICE: {
     korean: '벨',
