@@ -1,31 +1,31 @@
 const text = {
   PLACE_DEFAULT: {
     korean: '출현장소',
-    english: 'place',
+    english: 'dropdown',
   },
   PLACE_RIVER: {
     korean: '강',
-    english: 'river',
+    english: 'River',
   },
   PLACE_MOUTH: {
     korean: '강(하구)',
-    english: 'mouth of a river',
+    english: 'River (Mouth)',
   },
   PLACE_CLIFFTOP: {
     korean: '강(절벽위)',
-    english: 'clifftop',
+    english: 'River (Clifftop)',
   },
   PLACE_POND: { 
     korean: '연못',
-    english: 'pond',
+    english: 'Pond',
   },
   PLACE_OCEAN: {
     korean: '바다',
-    english: 'ocean',
+    english: 'Sea',
   },
   PLACE_PIER: {
     korean: '바다(부둣가)',
-    english: 'pier',
+    english: 'Pier',
   },
   SIZE_NARROW: {
     korean: '길다',
@@ -33,27 +33,27 @@ const text = {
   },
   SIZE_XSMALL: {
     korean: '가장 작음',
-    english: 'xsmall',
+    english: 'Tiny',
   },
   SIZE_SMALL: {
     korean: '작음',
-    english: 'small',
+    english: 'Small',
   },
   SIZE_MEDIUM: {
     korean: '보통',
-    english: 'medium',
+    english: 'Medium',
   },
   SIZE_LARGE: {
     korean: '큼',
-    english: 'large',
+    english: 'Large',
   },
   SIZE_XLARGE: {
     korean: '약간 큼',
-    english: 'xlarge',
+    english: 'Extra Large',
   },
   SIZE_XXLARGE: {
     korean: '가장 큼',
-    english: 'xxlarge',
+    english: 'Largest',
   },
   HAS_FIN: {
     korean: '지느러미',
@@ -65,23 +65,23 @@ const text = {
   },
   ALL_DAY: {
     korean: '하루종일 나타나요.',
-    english: 'all day',
+    english: 'Always',
   },
   ONLY_RAINING: {
     korean: '비 또는 눈',
-    english: 'only raining',
+    english: 'Only raining',
   },
   NORTHERN: {
     korean: '북반구',
-    english: 'northern',
+    english: 'Northern',
   },
   SOUTHERN: {
     korean: '남반구',
-    english: 'southern',
+    english: 'Southern',
   },
   APPEARANCE: {
     korean: '출현시기',
-    english: 'appearance',
+    english: 'dropdown 2',
   },
   PRICE: {
     korean: '벨',
@@ -89,12 +89,16 @@ const text = {
   },
   SEARCH_PLACEHOLDER: {
     korean: '물고기 검색',
-    english: 'fish search',
+    english: 'Find fish',
   },
   AVAILABLE_FISH: {
     korean: '지금 잡을수 있는 물고기',
-    english: 'available fish',
-  }
+    english: 'Fish available now',
+  },
+  ETC_FISH: {
+    korean: '그 외 물고기',
+    english: 'Other Fish',
+  },
 }
 
 export default text;

@@ -36,7 +36,7 @@ const FishList: React.FC<FishListProps> = React.memo(({ fishes, listText, lang }
   ): string => {
     return [
       ...fishPlaces.map((place) => placeTextMap[place]),
-      onlyRaining && text.ONLY_RAINING,
+      onlyRaining && text.ONLY_RAINING[lang],
     ]
       .filter(Boolean)
       .join(', ');

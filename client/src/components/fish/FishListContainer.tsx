@@ -56,7 +56,7 @@ const FishListContainer: FC = () => {
     'default',
   );
 
-  const { available } = useMemo(
+  const { available, etc } = useMemo(
     () => reduceFishesFromNow(fishes, nowMonth, nowHours, (hemisphereToggle)? 'northern': 'southern', place, searchContent, month),
     [fishes, nowHours, nowMonth, hemisphereToggle, place, searchContent, month],
   );
@@ -111,6 +111,9 @@ const FishListContainer: FC = () => {
         </div>
 
         <FishList fishes={available} listText={text.AVAILABLE_FISH[lang]} lang={lang} />
+        {
+          (searchContent === '') ? <FishList fishes={etc} listText={text.ETC_FISH[lang]} lang={lang} />  : ""
+        }
       </Suspense>
     </div>
   );
@@ -140,6 +143,7 @@ const selectLeftStyle = css`
 
 interface ReduceFishesResult {
   available: fishData.Fish[];
+  etc: fishData.Fish[];
 }
 
 const reduceFishesFromNow = (
@@ -171,11 +175,16 @@ const reduceFishesFromNow = (
           ...fish,
           applyMonths,
         })
+      } else {
+        acc['etc'].push({
+          ...fish,
+          applyMonths,
+        })
       }
 
       return acc;
     },
-    { available: []},
+    { available: [], etc: [] },
   );
 };
 const isApplyTimeFromNow = (
