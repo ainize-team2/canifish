@@ -29,7 +29,7 @@ export type ButtonVariants = 'primary';
 const variants: { [key in ButtonVariants]: any } = {
   primary: css`
     &:not(:disabled) {
-      background: ${colors.brown};
+      background: ${colors.darkBrown};
       color: ${colors.white};
 
       &:hover {

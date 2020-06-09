@@ -1,11 +1,29 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Button } from '../ui';
 import ProfileImage from "../images/profile.png";
+import analytics from '../constants/ga';
 
 import "../styles/about.css";
 
 
 const About: FC = () => {
+  const onClickAinizeLink = () => {
+    analytics.event({
+      category: 'spotainize_common',
+      action: 'poweredby_click',
+    });
+  }
+  const onClickGithubLink = () => {
+    analytics.event({
+      category: 'spotainize_common',
+      action: 'github_click',
+    });
+  }
+  
+  useEffect(() => {
+    analytics.ga("send", "pageview", "/about");
+  }, []);
+
   return (
     <main>
       <div className="about_hero section">
@@ -40,11 +58,11 @@ const About: FC = () => {
             <h2>How to join</h2>
             <h4>
               Create a branch and send pull requests to this {" "}
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ainize-team2/crowdy">
+              <a target="_blank" onClick={onClickGithubLink} rel="noopener noreferrer" href="https://github.com/ainize-team2/crowdy">
                 Github repo
               </a>{" "}
               to make Crowdy better, or simply use our{" "}
-              <a href="https://www.ainize.ai/liayoo/crowdy" rel="noopener noreferrer" target="_blank">
+              <a href="https://www.ainize.ai/liayoo/crowdy" onClick={onClickAinizeLink} rel="noopener noreferrer" target="_blank">
                 location APIs
               </a>{" "}
                in other interesting projects!
@@ -85,7 +103,7 @@ const About: FC = () => {
               you're just one click away from free deployments!
             </h4>
             <a target="_blank" rel="noopener noreferrer" href="https://ainize.ai">
-              <Button >Visit Ainize Website</Button>
+              <Button onClick={onClickAinizeLink}  >Visit Ainize Website</Button>
             </a>
           </div>
         </div>

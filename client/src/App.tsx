@@ -15,9 +15,24 @@ import containerStyle from './styles/containerStyle';
 import GitHubIcon from "./images/icon-git-hub.svg";
 import AinizeIcon from "./images/icon-ainize.svg";
 
+import analytics from './constants/ga';
 
 
 function App() {
+  const onClickAinizeLink = () => {
+    analytics.event({
+      category: 'spotainize_common',
+      action: 'poweredby_click',
+    });
+  }
+
+  const onClickGithubLink = () => {
+    analytics.event({
+      category: 'spotainize_common',
+      action: 'github_click',
+    });
+  }
+
   return (
     <React.Fragment>
       <header css={containerStyle}>
@@ -39,11 +54,11 @@ function App() {
         </Route>
       </Switch>
       <footer css={containerStyle}>
-        <a className="ainizeLink"  target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/ehdgus8077/canifish">
+        <a className="ainizeLink"  onClick={onClickAinizeLink} target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/ehdgus8077/canifish">
           <img src={AinizeIcon} alt="AinizeIcon"/>
           Powered by Ainize
         </a>
-        <a className="githubLink" target="_blank" rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
+        <a className="githubLink" onClick={onClickGithubLink}  target="_blank" rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
           <img src={GitHubIcon} alt="AinizeIcon"/>
           Contribute on GitHub
         </a>

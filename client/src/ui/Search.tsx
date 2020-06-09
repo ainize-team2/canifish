@@ -55,6 +55,9 @@ const style = css`
     border: 1px solid #B492FC;
     box-sizing: border-box;
   }
+  > input::placeholder {
+    color: #9C9386;
+  }
 
   > svg {
     color: ${colors.brown};

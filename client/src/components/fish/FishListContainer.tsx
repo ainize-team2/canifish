@@ -11,6 +11,7 @@ import text from '../../constants/text';
 import containerStyle from '../../styles/containerStyle';
 import translateIcon from '../../images/translate-icon.svg';
 // import media from 'css-in-js-media';
+import analytics from '../../constants/ga';
 
 const FishListContainer: FC = () => {
   const fishes = fishData.dataset;
@@ -29,6 +30,10 @@ const FishListContainer: FC = () => {
     return () => {
       window.addEventListener('focus', onWindowFocus);
     };
+  }, []);
+
+  useEffect(() => {
+    analytics.ga("send", "pageview", "/home");
   }, []);
 
   const [hemisphereToggle, setHemisphereToggle] = useState<boolean>(
@@ -51,9 +56,13 @@ const FishListContainer: FC = () => {
     'default',
   );
 
-  const { available } = useMemo(
+  const { available, etc } = useMemo(
     () => reduceFishesFromNow(fishes, nowMonth, nowHours, (hemisphereToggle)? 'northern': 'southern', place, searchContent, month),
     [fishes, nowHours, nowMonth, hemisphereToggle, place, searchContent, month],
+  );
+
+  const [lang, setLang] = useState<'english' | 'korean'>(
+    'korean',
   );
 
   return (
@@ -61,26 +70,26 @@ const FishListContainer: FC = () => {
       <Suspense fallback="Loading...">
         <div css={[containerStyle, filterStyle]}>
           <div css={[selectLeftStyle]}>
-            <Toggle first={text.NORTHERN} second={text.SOUTHERN} active={hemisphereToggle} onClick={(e) => {
+            <Toggle first={text.NORTHERN[lang]} second={text.SOUTHERN[lang]} active={hemisphereToggle} onClick={(e) => {
               setHemisphereToggle(!hemisphereToggle as any)
             }} />
             <Select
-              defaultValue={text.PLACE_DEFAULT}
+              defaultValue={text.PLACE_DEFAULT[lang]}
               onChange={(e) => setPlace(e.target.value as any)}
             >
-              <option value="default">{text.PLACE_DEFAULT}</option>
-              <option value="river">{text.PLACE_RIVER}</option>
-              <option value="clifftop">{text.PLACE_CLIFFTOP}</option>
-              <option value="pond">{text.PLACE_POND}</option>
-              <option value="ocean">{text.PLACE_OCEAN}</option>
-              <option value="pier">{text.PLACE_PIER}</option>
-              <option value="month">{text.PLACE_MOUTH}</option>
+              <option value="default">{text.PLACE_DEFAULT[lang]}</option>
+              <option value="river">{text.PLACE_RIVER[lang]}</option>
+              <option value="clifftop">{text.PLACE_CLIFFTOP[lang]}</option>
+              <option value="pond">{text.PLACE_POND[lang]}</option>
+              <option value="ocean">{text.PLACE_OCEAN[lang]}</option>
+              <option value="pier">{text.PLACE_PIER[lang]}</option>
+              <option value="month">{text.PLACE_MOUTH[lang]}</option>
             </Select>
             <Select
               defaultValue={'출현시기'}
               onChange={(e) => setMonth(e.target.value as any)}
             > 
-              <option value={"default"}>{text.APPEARANCE}</option>
+              <option value={"default"}>{text.APPEARANCE[lang]}</option>
               {
                 _.range(1, 13).map((item) => {
                   return <option value={item.toString()}>{item.toString()}</option>
@@ -92,15 +101,19 @@ const FishListContainer: FC = () => {
           <div css={[selectRightStyle]}>
             <Search
               onChange={(e) => serSearchContent(e.target.value as any)}
-              placeholder={"물고기 검색"}
+              placeholder={text.SEARCH_PLACEHOLDER[lang]}
               value={searchContent}/>
             <Toggle first={'한'} second={'A'} active={translateToggle} separator={translateIcon} separatorImage={true} onClick={(e) => {
+              setLang((lang === 'english') ? 'korean' : 'english');
               setTranslateToggle(!translateToggle as any)
             }} />
           </div>
         </div>
 
-        <FishList fishes={available} listText="지금 잡을수 있는 물고기" />
+        <FishList fishes={available} listText={text.AVAILABLE_FISH[lang]} lang={lang} />
+        {
+          (searchContent === '') ? <FishList fishes={etc} listText={text.ETC_FISH[lang]} lang={lang} />  : ""
+        }
       </Suspense>
     </div>
   );
@@ -130,6 +143,7 @@ const selectLeftStyle = css`
 
 interface ReduceFishesResult {
   available: fishData.Fish[];
+  etc: fishData.Fish[];
 }
 
 const reduceFishesFromNow = (
@@ -161,11 +175,16 @@ const reduceFishesFromNow = (
           ...fish,
           applyMonths,
         })
+      } else {
+        acc['etc'].push({
+          ...fish,
+          applyMonths,
+        })
       }
 
       return acc;
     },
-    { available: []},
+    { available: [], etc: [] },
   );
 };
 const isApplyTimeFromNow = (
