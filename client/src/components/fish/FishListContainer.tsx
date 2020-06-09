@@ -157,7 +157,7 @@ const reduceFishesFromNow = (
 ): ReduceFishesResult => {
   return fishes.reduce<ReduceFishesResult>(
     (acc, fish) => {
-      const { applyHours, place, name,  } = fish;
+      const { applyHours, place, name, imageUrl } = fish;
       
       const applyMonths =
         hemisphere === 'southern'
@@ -168,7 +168,7 @@ const reduceFishesFromNow = (
         applyMonths.includes((month === 'default')? nowMonth : Number(month)) &&
         isApplyTimeFromNow(applyHours, nowHours) &&
         (placeSelect === 'default' || place.includes(placeSelect)) &&
-        (searchContent === '' || name.includes(searchContent));
+        (searchContent === '' || name.includes(searchContent) || imageUrl.replace('_', '').includes(searchContent));
 
       if (isAvailableNow) {
         acc['available'].push({
