@@ -26,5 +26,5 @@ sudo docker run -p {Expose Port}:80 {Docker Path}:{Tag}
 
 # Todo
 Current The project contains only fish information. So, our goal is that the project will be a site that you can see all kinds of information in Animal Crossing Game.
-1. We have to design with the Animal Crossing Book, not the fish Book. <a href="https://www.figma.com/file/NaGrwqUqa8iixnm6LTPLy6/spot-ainize-t2-03?node-id=59%3A119" target="_blank">Design Link</a>
-2. We have to add an insect book
+1. We have to design with the Animal Crossing Book, not the fish Book. (design.fig)
+2. We have to add an insect book [link](https://docs.google.com/spreadsheets/u/1/d/1oJGO78ou4hJFj2gBYSo-WFaKmaUmItTSlh3AuTxBewc/htmlview?usp=sharing#')
