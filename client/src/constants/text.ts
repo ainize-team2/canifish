@@ -83,7 +83,7 @@ const text = {
     korean: '남반구',
     english: 'Southern',
   },
-  SEASON_TITME: {
+  SEASON_TITLE: {
     korean: '출현시기',
     english: 'Season',
   },

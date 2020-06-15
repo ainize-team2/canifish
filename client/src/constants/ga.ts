@@ -1,6 +1,7 @@
 import ReactGA from 'react-ga';
 
 const trackingId = "UA-164242824-13"; 
-ReactGA.initialize(trackingId, { titleCase: false });
+const GA_FLAG = (process.env.GA_FLAG === 'true') || true;
+ReactGA.initialize(trackingId, { titleCase: false, debug: (!GA_FLAG) });
 
 export default ReactGA;

@@ -101,7 +101,7 @@ const Home: FC = () => {
                 defaultValue={text.SEASON_NOW[lang]}
                 value={month}
                 onChange={(e) => setMonth(e.target.value as any)}
-                title={text.SEASON_TITME[lang]}
+                title={text.SEASON_TITLE[lang]}
               > 
                 <option value={"default"}>{text.SEASON_NOW[lang]}</option>
                 { 
