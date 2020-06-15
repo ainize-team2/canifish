@@ -1,21 +1,21 @@
 /* @jsx jsx */
 
-import * as fishData from '../../fishData'
+import * as fishData from '../fishData'
 import _ from 'lodash';
  // eslint-disable-next-line 
 import { jsx, css } from '@emotion/core';
 import React, { FC, useEffect, useMemo, useState, Suspense } from 'react';
-import FishList from './FishList';
-import { Select, Search, Toggle } from '../../ui';
-import text from '../../constants/text';
-import containerStyle from '../../styles/containerStyle';
-import translateIcon from '../../images/translate-icon.svg';
+import FishList from './fish/FishList';
+import { Select, Search, Toggle } from '../ui';
+import text, { ENG_MONTH } from '../constants/text';
+import translateIcon from '../images/translate-icon.svg';
 // import media from 'css-in-js-media';
-import analytics from '../../constants/ga';
+import analytics from '../constants/ga';
+import media, { getBreakPoints } from 'css-in-js-media';
 
-const FishListContainer: FC = () => {
+const Home: FC = () => {
   const fishes = fishData.dataset;
-
+  
   const [date, setDate] = useState<Date>(() => new Date());
   const nowMonth = date.getMonth();
   const nowHours = date.getHours();
@@ -40,9 +40,6 @@ const FishListContainer: FC = () => {
     true,
   );
 
-  const [translateToggle, setTranslateToggle] = useState<boolean>(
-    true,
-  );
 
   const [month, setMonth] = useState<'default' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12'>(
     'default',
@@ -62,45 +59,67 @@ const FishListContainer: FC = () => {
   );
 
   const [lang, setLang] = useState<'english' | 'korean'>(
-    'korean',
+    (navigator.language === 'ko-KR') ? 'korean' : 'english',
   );
+
+  const [translateToggle, setTranslateToggle] = useState<boolean>(
+    (lang === 'korean'),
+  );
+
+  const monthText = (month === 'default') ?
+   text.SEASON_NOW[lang] : (lang === 'korean') ? month + '월에' : ENG_MONTH[Number(month) - 1];
+
+  const availableTitle = (searchContent !== '') ? '' : (lang === 'korean') ?
+   `${monthText} ${text.AVAILABLE_FISH[lang]}` : `${text.AVAILABLE_FISH[lang]} in ${monthText}`;
 
   return (
     <div>
       <Suspense fallback="Loading...">
-        <div css={[containerStyle, filterStyle]}>
-          <div css={[selectLeftStyle]}>
-            <Toggle first={text.NORTHERN[lang]} second={text.SOUTHERN[lang]} active={hemisphereToggle} onClick={(e) => {
-              setHemisphereToggle(!hemisphereToggle as any)
-            }} />
-            <Select
-              defaultValue={text.PLACE_DEFAULT[lang]}
-              onChange={(e) => setPlace(e.target.value as any)}
-            >
-              <option value="default">{text.PLACE_DEFAULT[lang]}</option>
-              <option value="river">{text.PLACE_RIVER[lang]}</option>
-              <option value="clifftop">{text.PLACE_CLIFFTOP[lang]}</option>
-              <option value="pond">{text.PLACE_POND[lang]}</option>
-              <option value="ocean">{text.PLACE_OCEAN[lang]}</option>
-              <option value="pier">{text.PLACE_PIER[lang]}</option>
-              <option value="month">{text.PLACE_MOUTH[lang]}</option>
-            </Select>
-            <Select
-              defaultValue={'출현시기'}
-              onChange={(e) => setMonth(e.target.value as any)}
-            > 
-              <option value={"default"}>{text.APPEARANCE[lang]}</option>
-              {
-                _.range(1, 13).map((item) => {
-                  return <option value={item.toString()}>{item.toString()}</option>
-                })
-              }
-            </Select>
+        <div css={[filterStyle]}>
+          <div className="filter">
+            <div className="filter sub">
+              <Toggle first={text.NORTHERN[lang]} second={text.SOUTHERN[lang]} active={hemisphereToggle} onClick={(_) => {
+                setHemisphereToggle(!hemisphereToggle as any)
+              }} />
+            </div>
+            <div className="filter sub">
+              <Select
+                defaultValue={text.PLACE_ALL[lang]}
+                value={place}
+                onChange={(e) => setPlace(e.target.value as any)}
+                title={text.PLACE_TITLE[lang]}
+              >
+                <option value="default">{text.PLACE_ALL[lang]}</option>
+                <option value="river">{text.PLACE_RIVER[lang]}</option>
+                <option value="clifftop">{text.PLACE_CLIFFTOP[lang]}</option>
+                <option value="pond">{text.PLACE_POND[lang]}</option>
+                <option value="ocean">{text.PLACE_OCEAN[lang]}</option>
+                <option value="pier">{text.PLACE_PIER[lang]}</option>
+                <option value="month">{text.PLACE_MOUTH[lang]}</option>
+              </Select>
+              <Select
+                defaultValue={text.SEASON_NOW[lang]}
+                value={month}
+                onChange={(e) => setMonth(e.target.value as any)}
+                title={text.SEASON_TITME[lang]}
+              > 
+                <option value={"default"}>{text.SEASON_NOW[lang]}</option>
+                { 
+                  _.range(1, 13).map((item) => {
+                    return <option value={item.toString()}>{(lang === "korean") ? item.toString() + '월' : ENG_MONTH[item - 1] }</option>
+                  })
+                }
+              </Select>
+            </div>
           </div>
 
-          <div css={[selectRightStyle]}>
+          <div className="filter sub" css={{justify: "flex-end"}}>
             <Search
-              onChange={(e) => serSearchContent(e.target.value as any)}
+              onChange={(e) => {
+                serSearchContent(e.target.value as any);
+                setMonth('default');
+                setPlace('default');
+              }}
               placeholder={text.SEARCH_PLACEHOLDER[lang]}
               value={searchContent}/>
             <Toggle first={'한'} second={'A'} active={translateToggle} separator={translateIcon} separatorImage={true} onClick={(e) => {
@@ -110,7 +129,7 @@ const FishListContainer: FC = () => {
           </div>
         </div>
 
-        <FishList fishes={available} listText={text.AVAILABLE_FISH[lang]} lang={lang} />
+        <FishList fishes={available} listText={ availableTitle } lang={lang} />
         {
           (searchContent === '') ? <FishList fishes={etc} listText={text.ETC_FISH[lang]} lang={lang} />  : ""
         }
@@ -119,27 +138,45 @@ const FishListContainer: FC = () => {
   );
 };
 
-FishListContainer.displayName = 'FishListContainer';
+Home.displayName = 'home';
 
-export default FishListContainer;
+export default Home;
 
 const filterStyle = css`
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   padding: 0.5rem;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap;  
+
+  div.filter {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  div.sub {
+    margin-top: 10px;
+  }
+  
+
+  ${media('>=largeDesktop')} {
+    max-width: ${getBreakPoints().largeDesktop}px;
+  }
+  
+  ${media('>=largeDesktop')} {
+    max-width: ${getBreakPoints().largeDesktop}px;
+  }
+
+  ${media('<=largeDesktop', '>desktop')} {
+    max-width: ${getBreakPoints().desktop}px;
+  }
+
+  ${media('<=desktop', '>tablet')} {
+    max-width: ${getBreakPoints().tablet}px;
+  }
 `;
 
-const selectRightStyle = css`
-  display: flex;
-  justify: flex-end;
-  margin-top: 15px;
-`;
-
-const selectLeftStyle = css`
-  display: flex;
-  margin-top: 15px;
-`;
 
 interface ReduceFishesResult {
   available: fishData.Fish[];
@@ -165,7 +202,7 @@ const reduceFishesFromNow = (
           : fish.applyMonths;
 
       const isAvailableNow =
-        applyMonths.includes((month === 'default')? nowMonth : Number(month)) &&
+        applyMonths.includes((month === 'default')? nowMonth : Number(month) - 1) &&
         isApplyTimeFromNow(applyHours, nowHours) &&
         (placeSelect === 'default' || place.includes(placeSelect)) &&
         (searchContent === '' || name.includes(searchContent) || imageUrl.replace('_', '').includes(searchContent));

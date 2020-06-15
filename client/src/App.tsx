@@ -1,7 +1,7 @@
 /* @jsx jsx */
 import React from 'react';
 
-import FishListContainer from './components/fish/FishListContainer';
+import Home from './components/home';
 import About from './components/about';
 
  // eslint-disable-next-line 
@@ -48,12 +48,12 @@ function App() {
       </header>
       <Switch>
         <Route exact path="/about" component={About} />
-        <Route exact path="/FishListContainer" component={FishListContainer} />
+        <Route exact path="/home" component={Home} />
         <Route path="/">
-          <Redirect to="/FishListContainer" />
+          <Redirect to="/home" />
         </Route>
       </Switch>
-      <footer css={containerStyle}>
+      <footer css={[containerStyle, footerStyle]}>
         <a className="ainizeLink"  onClick={onClickAinizeLink} target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/ehdgus8077/canifish">
           <img src={AinizeIcon} alt="AinizeIcon"/>
           Powered by Ainize
@@ -66,5 +66,8 @@ function App() {
     </React.Fragment>
   );
 }
+const footerStyle = css`
+flex-wrap: wrap;
 
+`;
 export default App;
