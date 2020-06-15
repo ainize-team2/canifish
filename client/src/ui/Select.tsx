@@ -14,8 +14,11 @@ export interface SelectProps
 export const Select: FC<SelectProps> = memo((props) => {
   return (
     <div css={style}>
-      <select {...props} />
-      <FaAngleDown />
+      <div> {props.title} </div>
+      <div css={style}>
+        <select {...props} />
+        <FaAngleDown />
+      </div>
     </div>
   );
 });
@@ -28,7 +31,17 @@ const style = css`
   display: inline-block;
   margin-right: 15px;
 
+  > div {
+    display: inline-block;
+    font-family: Apple SD Gothic Neo;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+
   > select {
+    display: inline-block;
     color: ${colors.brown};
     padding: 0 2rem 0 1rem;
     background-color: ${colors.beige};

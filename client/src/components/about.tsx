@@ -1,10 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import { Button } from '../ui';
-import ProfileImage from "../images/profile.png";
+import ProfileImage from "../images/profile.svg";
 import analytics from '../constants/ga';
+import GitHubIcon from "../images/icon-github-white.svg";
+import TelegramIcon from "../images/icon-telegram.svg";
 
 import "../styles/about.css";
-
 
 const About: FC = () => {
   const onClickAinizeLink = () => {
@@ -23,31 +24,30 @@ const About: FC = () => {
   useEffect(() => {
     analytics.ga("send", "pageview", "/about");
   }, []);
-
   return (
     <main>
       <div className="about_hero section">
         <div className="container">
           <div className="content">
             <h1>
-              Join us to improve <br />
-              Can I fish
+              Join Project Reinvent <br />
+              to improve Can I Fish
             </h1>
             <h4>
-              Hundreds of open-source projects or hackathon winning ideas with
-              great potential end up being forgotten in Github repositories. We
-              found Crowdy, a hackathon-winning project that has great potential
-              to help people globally. Powered by Ainize, we published the next
-              version of Crowdy with new features -- but there’s still plenty of
-              room for improvement.
+              Project Reinvent is an initiative to bring new life to forgotten open-source projects.
+              We added more features and the English version.
+              We’re looking forward to having more contributions from global fans of Animal Crossing!
             </h4>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/iamchanii/canifish">
+              <Button ><img className="svg" src={GitHubIcon} alt="GitHubIcon" />Github repo</Button>
+            </a>
           </div>
-          <div className="content quote">
+          <div className="content quote box">
             <h3>
-              “To have another team, from another part of the world, build new
-              features for Crowdy is something really heartwarming to see."
+              “Seeing a new version of my project, developed further by someone else 
+              was such a unique experience."
             </h3>
-            <h4>Andrew Lim, Author of Crowdy</h4>
+            <h4>iamchanii, open-source developer & author of Can I Fish</h4>
             <img src={ProfileImage} alt="ProfileImage"/>
           </div>
         </div>
@@ -58,11 +58,11 @@ const About: FC = () => {
             <h2>How to join</h2>
             <h4>
               Create a branch and send pull requests to this {" "}
-              <a target="_blank" onClick={onClickGithubLink} rel="noopener noreferrer" href="https://github.com/ainize-team2/crowdy">
+              <a target="_blank" onClick={onClickGithubLink} rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
                 Github repo
               </a>{" "}
               to make Crowdy better, or simply use our{" "}
-              <a href="https://www.ainize.ai/liayoo/crowdy" onClick={onClickAinizeLink} rel="noopener noreferrer" target="_blank">
+              <a href="https://www.ainize.ai/ehdgus8077/canifish" onClick={onClickAinizeLink} rel="noopener noreferrer" target="_blank">
                 location APIs
               </a>{" "}
                in other interesting projects!
@@ -73,19 +73,19 @@ const About: FC = () => {
           <div className="content">
             <h2>What is Can I fish?</h2>
             <h4>
-              Crowdy displays the LIVE status of nearby supermarkets, hospitals,
-              pharmacies, banks, and restaurants based on your current location
-              to help people avoid crowded places, minimizing COVID19 risks. The
-              project was initially developed by Andrew Lim, submitted to
-              COVID-19 Global Hackathon 1.0.
+              Can I Fish is a complete guidebook for fish collectors of Animal Crossing.
+              It simply allows you to easily find types of fish that you can catch today. Also,
+              you can search by name and price of fish.
+              Can I Fish was developed to help users to access information without spending time on communities. 
             </h4>
             <h4>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://devpost.com/software/crowdy-8w1pvu"
-              >
-                Find more information about the original version of Crowdy
+              The original version of Can I Fish project {" "}
+              <a href="https://github.com/iamchanii/canifish" rel="noopener noreferrer" target="_blank">
+                Github repo
+              </a>{" "}
+              by iamchanii. Can I Fish website design is done by {" "}
+              <a href="https://www.behance.net/adorable_jin" rel="noopener noreferrer" target="_blank">
+                adorable_jin. 
               </a>
             </h4>
           </div>
@@ -102,9 +102,16 @@ const About: FC = () => {
               repositories is free at Ainize. If your repo has a Dockerfile,
               you're just one click away from free deployments!
             </h4>
-            <a target="_blank" rel="noopener noreferrer" href="https://ainize.ai">
-              <Button onClick={onClickAinizeLink}  >Visit Ainize Website</Button>
-            </a>
+            <div className="link github">
+              <a target="_blank" rel="noopener noreferrer" href="https://ainize.ai">
+                <Button onClick={onClickAinizeLink} > Visit Ainize Website</Button>
+              </a>
+            </div>
+            <div className="link telegram">
+              <a target="_blank" rel="noopener noreferrer" href="https://t.me/projectreinventi">
+                <Button onClick={onClickAinizeLink} ><img className="svg" src={TelegramIcon} alt="TelegramIcon" /> </Button>
+              </a>
+            </div>
           </div>
         </div>
       </div>

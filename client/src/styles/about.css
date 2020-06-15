@@ -1,6 +1,19 @@
 main {
-  padding-right: 50px;
-  padding-left: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1450px;
+}
+
+@media screen and (max-width: 1440px) {
+  main  {
+    max-width: 1000px;
+  }
+}
+  
+@media screen and (max-width: 1024px) {
+  main  {
+    max-width: 744px;
+  }
 }
 
 .ainize .container,
@@ -24,13 +37,13 @@ main {
 
 .about_hero h1 {
   margin: 20px 60px;
-  font-weight: normal;
   font-size: 64px;
+  font-weight: normal;
 }
 
 h4 {
   font-family: Apple SD Gothic Neo;
-  font-size: 16px;
+  font-size: 20px;
   color: #747476;
 }
 
@@ -40,16 +53,25 @@ h4 a{
 
 .about_hero h4 {
   margin-bottom: 40px;
+  font-weight: normal;
+  line-height: 30px;
+}
+
+.ainize h4, .about h4 {
+  margin-bottom: 40px;
+  font-weight: normal;
+  line-height: 30px;
+  font-size: 16px;
 }
 
 .about_hero .quote {
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+  background: linear-gradient(180deg, rgba(251, 250, 248, 0.8) 0%, #FBFAF8 100%);
   padding: 80px 170px 0px 170px;
 }
 
 .about_hero .quote h3 {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: bold;
   line-height: 38px;
   margin: 0;
   color: #5DC5B9;
@@ -62,8 +84,23 @@ h4 a{
   border-radius: 30px;
 }
 
+.about_hero button,
+.about_hero button:focus {
+  margin-top: 40px;
+  width: 164px;
+  height: 54px;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+}
+
 .about_hero .content {
   max-width: 900px;
+  margin-top: 70px;
+}
+
+.content.quote {
+  border-radius: 60px 60px 0px 0px;
 }
 
 .about .container {
@@ -74,9 +111,14 @@ h4 a{
 .about .container:last-child {
   padding: 90px 120px 90px 120px;
 }
+.quote h4 {
+  font-size: 16px;
+}
 
 .about .container h2 {
   margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 32px;
 }
 
 .about a {
@@ -95,13 +137,31 @@ h4 a{
   max-width: 900px;
 }
 
-.ainize button,
-.ainize button:focus {
-  margin-top: 40px;
-  width: 200px;
-  height: 60px;
+.ainize .link {
+  display: inline-block;
+}
+
+.ainize .github button,
+.ainize .github button:focus {
+  width: 220px;
+  height: 54px;
   color: white;
   font-size: 16px;
+  margin-left: 30px;
+  font-weight: normal;
+}
+
+
+.ainize .telegram button,
+.ainize .telegram button:focus {
+  width: 60px;
+  height: 54px;
+  color: white;
+  font-size: 16px;
+  margin-left: 30px;
+  font-weight: normal;
+  padding-top: 5px;
+
 }
 
 @media screen and (max-width: 1088px) {
@@ -114,7 +174,7 @@ h4 a{
   .about_hero .quote {
     padding: 80px 100px 0px 100px;
   }
-  .about_hero .quote h3 {
+  .about_hero .quote b {
     font-size: 22px;
     line-height: 30px;
   }
@@ -136,6 +196,11 @@ h4 a{
   .about_hero .quote h3 {
     font-size: 16px;
     line-height: 25px;
+  }
+  .ainize button {
+    width: 201px;
+    height: 60px;
+    font-size: 16px;
   }
   .about_hero .quote img {
     height: 40px;

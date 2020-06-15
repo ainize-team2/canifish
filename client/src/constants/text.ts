@@ -1,5 +1,9 @@
 const text = {
-  PLACE_DEFAULT: {
+  PLACE_ALL: {
+    korean: '전체',
+    english: 'All',
+  },
+  PLACE_TITLE: {
     korean: '출현장소',
     english: 'Location',
   },
@@ -79,9 +83,13 @@ const text = {
     korean: '남반구',
     english: 'Southern',
   },
-  APPEARANCE: {
+  SEASON_TITLE: {
     korean: '출현시기',
     english: 'Season',
+  },
+  SEASON_NOW: {
+    korean: '지금',
+    english: 'Now',
   },
   PRICE: {
     korean: '벨',
@@ -92,13 +100,15 @@ const text = {
     english: 'Find fish',
   },
   AVAILABLE_FISH: {
-    korean: '지금 잡을수 있는 물고기',
-    english: 'Fish available now',
+    korean: '잡을수 있는 물고기',
+    english: 'Fish available',
   },
   ETC_FISH: {
     korean: '그 외 물고기',
     english: 'Other Fish',
   },
 }
+
+export const ENG_MONTH =  ["January", "February", "March", "April", "May", "June", "July", "August",  "September",  "October", "November", "December"]
 
 export default text;
