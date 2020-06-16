@@ -38,7 +38,7 @@ const About: FC = () => {
               We added more features and the English version.
               We’re looking forward to having more contributions from global fans of Animal Crossing!
             </h4>
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/iamchanii/canifish">
+            <a target="_blank" onClick={onClickGithubLink} rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
               <Button ><img className="svg" src={GitHubIcon} alt="GitHubIcon" />Github repo</Button>
             </a>
           </div>
@@ -47,7 +47,7 @@ const About: FC = () => {
               “Seeing a new version of my project, developed further by someone else 
               was such a unique experience."
             </h3>
-            <h4>iamchanii, open-source developer & author of Can I Fish</h4>
+            <h4 style={{lineHeight: '28px'}}>iamchanii, open-source developer & author of Can I Fish</h4>
             <img src={ProfileImage} alt="ProfileImage"/>
           </div>
         </div>
@@ -56,7 +56,7 @@ const About: FC = () => {
         <div className="container">
           <div className="content">
             <h2>How to join</h2>
-            <h4>
+            <h4 style={{lineHeight: '28px'}}>
               Create a branch and send pull requests to this {" "}
               <a target="_blank" onClick={onClickGithubLink} rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
                 Github repo
@@ -72,13 +72,13 @@ const About: FC = () => {
         <div className="container">
           <div className="content">
             <h2>What is Can I fish?</h2>
-            <h4>
+            <h4 style={{lineHeight: '28px'}}>
               Can I Fish is a complete guidebook for fish collectors of Animal Crossing.
               It simply allows you to easily find types of fish that you can catch today. Also,
               you can search by name and price of fish.
               Can I Fish was developed to help users to access information without spending time on communities. 
             </h4>
-            <h4>
+            <h4 style={{lineHeight: '28px'}}>
               The original version of Can I Fish project {" "}
               <a href="https://github.com/iamchanii/canifish" rel="noopener noreferrer" target="_blank">
                 Github repo
@@ -95,7 +95,7 @@ const About: FC = () => {
         <div className="container">
           <div className="content">
             <h2>What is Ainize</h2>
-            <h4>
+            <h4 style={{lineHeight: '28px'}}>
               Ainize is a serverless cloud platform that helps developers to
               transform open-source projects into live services. To encourage
               the creation of innovative projects, deploying public Github
@@ -108,7 +108,7 @@ const About: FC = () => {
               </a>
             </div>
             <div className="link telegram">
-              <a target="_blank" rel="noopener noreferrer" href="https://t.me/projectreinventi">
+              <a target="_blank" rel="noopener noreferrer" href="https://t.me/projectreinvent">
                 <Button onClick={onClickAinizeLink} ><img className="svg" src={TelegramIcon} alt="TelegramIcon" /> </Button>
               </a>
             </div>
