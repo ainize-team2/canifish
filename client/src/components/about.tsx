@@ -55,22 +55,6 @@ const About: FC = () => {
       <div className="about section">
         <div className="container">
           <div className="content">
-            <h2>How to join</h2>
-            <h4 style={{lineHeight: '28px'}}>
-              Create a branch and send pull requests to this {" "}
-              <a target="_blank" onClick={onClickGithubLink} rel="noopener noreferrer" href="https://github.com/ainize-team2/canifish">
-                Github repo
-              </a>{" "}
-              to make Crowdy better, or simply use our{" "}
-              <a href="https://www.ainize.ai/ehdgus8077/canifish" onClick={onClickAinizeLink} rel="noopener noreferrer" target="_blank">
-                location APIs
-              </a>{" "}
-               in other interesting projects!
-            </h4>
-          </div>
-        </div>
-        <div className="container">
-          <div className="content">
             <h2>What is Can I fish?</h2>
             <h4 style={{lineHeight: '28px'}}>
               Can I Fish is a complete guidebook for fish collectors of Animal Crossing.

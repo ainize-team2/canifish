@@ -54,7 +54,7 @@ function App() {
         </Route>
       </Switch>
       <footer css={[containerStyle, footerStyle]}>
-        <a className="ainizeLink"  onClick={onClickAinizeLink} target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai/ehdgus8077/canifish">
+        <a className="ainizeLink"  onClick={onClickAinizeLink} target="_blank" rel="noopener noreferrer" href="https://www.ainize.ai">
           <img src={AinizeIcon} alt="AinizeIcon"/>
           Powered by Ainize
         </a>
