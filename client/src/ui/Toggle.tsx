@@ -6,7 +6,7 @@ import colors from './colors';
 
 const style = css`
   /** 버튼 모양 */
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 8px;
   border: none;
   outline: 0;
