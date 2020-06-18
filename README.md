@@ -1,5 +1,5 @@
 
-[![Run on Ainize](https://www.ainize.ai/static/images/run_on_ainize_button.svg)](/images/wonny.jpeg) 
+[![Run on Ainize](https://www.ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/ainize-team2/canifish)
 
 <img src=/images/animal_crossing.jpg width="1000px" height="400px">
 
