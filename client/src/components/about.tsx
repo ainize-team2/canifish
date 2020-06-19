@@ -3,7 +3,9 @@ import { Button } from '../ui';
 import ProfileImage from "../images/profile.svg";
 import analytics from '../constants/ga';
 import GitHubIcon from "../images/icon-github-white.svg";
-import TelegramIcon from "../images/icon-telegram.svg";
+import AinizeIcon from "../images/icon-ainize-white.svg";
+import StackoverflowIcon from "../images/icon-stackoverflow.svg";
+
 
 import "../styles/about.css";
 
@@ -18,6 +20,13 @@ const About: FC = () => {
     analytics.event({
       category: 'spotainize_common',
       action: 'github_click',
+    });
+  }
+
+  const onClickStackink = () => {
+    analytics.event({
+      category: 'spotainize_common',
+      action: 'stackoverflow_click',
     });
   }
   
@@ -86,14 +95,14 @@ const About: FC = () => {
               repositories is free at Ainize. If your repo has a Dockerfile,
               you're just one click away from free deployments!
             </h4>
-            <div className="link github">
+            <div className="link ainizeIcon">
               <a target="_blank" rel="noopener noreferrer" href="https://ainize.ai">
-                <Button onClick={onClickAinizeLink} > Visit Ainize Website</Button>
+                <Button onClick={onClickAinizeLink} ><img className="svg" src={AinizeIcon} alt="AinizeIcon" /> Visit Ainize Website</Button>
               </a>
             </div>
-            <div className="link telegram">
-              <a target="_blank" rel="noopener noreferrer" href="https://t.me/projectreinvent">
-                <Button onClick={onClickAinizeLink} ><img className="svg" src={TelegramIcon} alt="TelegramIcon" /> </Button>
+            <div className="link stackIcon">
+              <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/tagged/ainize">
+                <Button onClick={onClickStackink} ><img className="svg" src={StackoverflowIcon} alt="StackOverflow" />Ask on Stack Overflow</Button>
               </a>
             </div>
           </div>

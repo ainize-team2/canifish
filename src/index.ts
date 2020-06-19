@@ -17,4 +17,4 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 80;
-server.listen(port, () => console.log(`Crowdy app listening on port ${port}!`));
+server.listen(port, () => console.log(`Canifish app listening on port ${port}!`));

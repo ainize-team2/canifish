@@ -141,8 +141,8 @@ h4 a{
   display: inline-block;
 }
 
-.ainize .github button,
-.ainize .github button:focus {
+.ainizeIcon button,
+.ainizeIcon button:focus {
   width: 220px;
   height: 54px;
   color: white;
@@ -152,9 +152,9 @@ h4 a{
 }
 
 
-.ainize .telegram button,
-.ainize .telegram button:focus {
-  width: 60px;
+.stackIcon button,
+.stackIcon button:focus {
+  width: 240px;
   height: 54px;
   color: white;
   font-size: 16px;
