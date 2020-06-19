@@ -67,10 +67,10 @@ const Home: FC = () => {
   );
 
   const monthText = (month === 'default') ?
-   text.SEASON_NOW[lang] : (lang === 'korean') ? month + '월에' : ENG_MONTH[Number(month) - 1];
+   text.SEASON_NOW[lang] : (lang === 'korean') ? month + '월에' : 'in ' + ENG_MONTH[Number(month) - 1];
 
   const availableTitle = (searchContent !== '') ? '' : (lang === 'korean') ?
-   `${monthText} ${text.AVAILABLE_FISH[lang]}` : `${text.AVAILABLE_FISH[lang]} in ${monthText}`;
+   `${monthText} ${text.AVAILABLE_FISH[lang]}` : `${text.AVAILABLE_FISH[lang]} ${monthText}`;
 
   return (
     <div>
@@ -154,11 +154,6 @@ const filterStyle = css`
     display: flex;
     flex-wrap: wrap;
   }
-
-  div.sub {
-    margin-top: 10px;
-  }
-  
 
   ${media('>=largeDesktop')} {
     max-width: ${getBreakPoints().largeDesktop}px;

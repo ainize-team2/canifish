@@ -6,16 +6,16 @@ import colors from './colors';
 
 const style = css`
   /** 버튼 모양 */
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 8px;
   border: none;
   outline: 0;
   cursor: pointer;
-  margin-right: 15px;
   /** 버튼 텍스트 */
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: -0.02em;
+  margin: 10px;
 
   /** 비활성 상태일 때의 스타일 */
   &:disabled {

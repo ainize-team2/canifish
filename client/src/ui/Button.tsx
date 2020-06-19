@@ -16,7 +16,7 @@ const style = css`
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /** 비활성 상태일 때의 스타일 */
   &:disabled {

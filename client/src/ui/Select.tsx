@@ -29,7 +29,7 @@ const style = css`
   position: relative;
   height: 2rem;
   display: inline-block;
-  margin-right: 15px;
+  margin: 5px 10px 10px 10px;
 
   > div {
     display: inline-block;

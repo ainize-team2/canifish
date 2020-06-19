@@ -26,7 +26,8 @@ const style = css`
   position: relative;
   height: 2rem;
   display: inline-block;
-  margin-right: 15px;
+  margin: 10px;
+
 
   > input {
     color: ${colors.brown};
