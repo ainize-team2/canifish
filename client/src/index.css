@@ -1,0 +1,32 @@
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css');
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.safari {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:"Arial" "Rounded MT" Bold;
+}
+
+body.font-loaded {
+  font-family: "Arial" "Rounded MT" Bold;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

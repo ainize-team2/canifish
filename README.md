@@ -1,9 +1,29 @@
-# [Can I Fish?](https://canifish.now.sh)
 
-[모여봐요 동물의 숲](https://store.nintendo.co.kr/70010000027621) 게임에서 나타나는 물고기 도감입니다.
+[![Run on Ainize](https://www.ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/ainize-team2/canifish)
 
-## Resources
+<img src=/images/animal_crossing.jpg width="1000px" height="400px">
 
-- [모여봐요 동물의 숲 생물 도감](https://docs.google.com/spreadsheets/d/1oJGO78ou4hJFj2gBYSo-WFaKmaUmItTSlh3AuTxBewc/htmlview?usp=sharing)
-  by RottenBlotch
-- [동물의 숲 시리즈/물고기](https://namu.wiki/w/%EB%8F%99%EB%AC%BC%EC%9D%98%20%EC%88%B2%20%EC%8B%9C%EB%A6%AC%EC%A6%88/%EB%AC%BC%EA%B3%A0%EA%B8%B0)
+
+This project is a fish book to help you find fish information in Animal Crossing Game.
+
+# How to Run
+
+## Local
+```
+yarn
+yarn run client-build
+yarn start
+```
+
+## Docker
+```
+sudo docker build -t {Docker Path}:{Tag} .
+sudo docker run -p {Expose Port}:80 {Docker Path}:{Tag}
+```
+
+- Install docker [link](https://blog.cosmosfarm.com/archives/248/%EC%9A%B0%EB%B6%84%ED%88%AC-18-04-%EB%8F%84%EC%BB%A4-docker-%EC%84%A4%EC%B9%98-%EB%B0%A9%EB%B2%95/)
+
+# Todo
+Current The project contains only fish information. So, our goal is that the project will be a site that you can see all kinds of information in Animal Crossing Game.
+1. We have to design with the Animal Crossing Book, not the fish Book. (design.fig)
+2. We have to add an insect book [link](https://docs.google.com/spreadsheets/u/1/d/1oJGO78ou4hJFj2gBYSo-WFaKmaUmItTSlh3AuTxBewc/htmlview?usp=sharing#')
