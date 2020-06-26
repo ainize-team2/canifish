@@ -97,7 +97,7 @@ const About: FC = () => {
             </h4>
             <div className="link ainizeIcon">
               <a target="_blank" rel="noopener noreferrer" href="https://ainize.ai">
-                <Button onClick={onClickAinizeLink} ><img className="svg" src={AinizeIcon} alt="AinizeIcon" /> Visit Ainize Website</Button>
+                <Button onClick={onClickAinizeLink} style={{ marginBottom: '10px' }}><img className="svg" src={AinizeIcon} alt="AinizeIcon" /> Visit Ainize Website</Button>
               </a>
             </div>
             <div className="link stackIcon">
